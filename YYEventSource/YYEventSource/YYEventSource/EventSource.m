@@ -181,7 +181,7 @@ didReceiveResponse:(NSURLResponse *)response completionHandler:(void (^)(NSURLSe
                     if ([key isEqualToString:ESEventEventKey]) {
                         event.eventType = value;
                     } else if ([key isEqualToString:ESEventDataKey]) {
-                        event.eventType = MessageEvent;
+                        event.eventType = event.eventType.length ? event.eventType : MessageEvent;
                         if (event.data != nil) {
                             event.data = [event.data stringByAppendingFormat:@"\n%@", value];
                         } else {

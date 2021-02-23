@@ -22,15 +22,12 @@
 }
 
 - (void)connect {
-    NSString *url = @"";
+    NSString *url = @"http://127.0.0.1:8844/stream";
     EventSource *eventSource = [EventSource eventSourceWithURL:[NSURL URLWithString:url]];
 
     [eventSource onMessage:^(Event *e) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            NSData *jsonData = [e.data dataUsingEncoding:NSUTF8StringEncoding];
-            NSError *err;
-            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&err];
-            NSLog(@"------------------\n%@", dic);
+            NSLog(@"%@", e);
         });
     }];
     
