@@ -34,3 +34,5 @@ connect:
 ```
 
 You will see the message in console.
+
+PS: Base on [code](https://github.com/neilco/EventSource).
