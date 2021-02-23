@@ -19,18 +19,18 @@ node sse-server.js
 connect:
 
 ```objc
-    NSString *url = @"http://127.0.0.1:8844/stream";
-    EventSource *eventSource = [EventSource eventSourceWithURL:[NSURL URLWithString:url]];
+NSString *url = @"http://127.0.0.1:8844/stream";
+EventSource *eventSource = [EventSource eventSourceWithURL:[NSURL URLWithString:url]];
 
-    [eventSource onMessage:^(Event *e) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSLog(@"%@", e);
-        });
-    }];
-    
-    [eventSource onError:^(Event *event) {
-        NSLog(@"error:%@", event.error);
-    }];
+[eventSource onMessage:^(Event *e) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"%@", e);
+    });
+}];
+
+[eventSource onError:^(Event *event) {
+    NSLog(@"error:%@", event.error);
+}];
 ```
 
 You will see the message in console.
