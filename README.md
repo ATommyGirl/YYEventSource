@@ -1,5 +1,7 @@
 # YYEventSource
 
+博客：[Server-Sent Events / EventSource](https://tommygirl.cn/2021/02/19/Server-Sent%20Events/)
+
 ##### Start server on `http://127.0.0.1:8844/stream`.
 
 ```js
